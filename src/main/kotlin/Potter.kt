@@ -1,1 +1,1 @@
-fun price(): Double = 0.0
+fun price(vararg books: Any): Double = 8.0 * books.size
