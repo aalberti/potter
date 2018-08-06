@@ -1,15 +1,15 @@
 fun price(books: Collection<Any>): Double {
-    val twoBookSet = books.twoBookSet()
-    return if (twoBookSet != null)
-        15.2 + price(books.minusAll(twoBookSet))
-    else
-        8.0 * books.size
-}
-
-private fun Collection<Any>.twoBookSet(): Collection<Any>? {
-    val distinct = distinct()
-    return if (distinct.size < 2) null
-    else distinct.take(2)
+    return if (books.isEmpty())
+        0.0
+    else {
+        val set = books.distinct()
+        val setPrice = when (set.size) {
+            3 -> 21.6
+            2 -> 15.2
+            else -> 8.0
+        }
+        setPrice + price(books.minusAll(set))
+    }
 }
 
 fun Collection<Any>.minusAll(toRemove:Collection<Any>): Collection<Any> = when {

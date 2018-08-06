@@ -31,4 +31,7 @@ class PotterTest : StringSpec({
                 1, 2
         )) shouldBe priceForTwo * 3
     }
+    "3-book set gets 10% discount" {
+        price(listOf(1, 2, 3)) shouldBe 8.0 * 3 * .9
+    }
 })
