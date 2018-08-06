@@ -43,4 +43,13 @@ class PotterTest : StringSpec({
     "5-book set gets 25% discount" {
         price(listOf(1, 2, 3, 4, 5)) shouldBe priceForFive
     }
+    "2+2+1" {
+        price(listOf("1", "1", "2", "1", "2")) shouldBe priceForOne + priceForTwo * 2
+    }
+    "4+2" {
+        price(listOf(0, 0, 1, 1, 2, 3)) shouldBe priceForFour + priceForTwo
+    }
+    "5+2" {
+        price(listOf(0, 0, 1, 1, 2, 3, 5)) shouldBe priceForFive + priceForTwo
+    }
 })
