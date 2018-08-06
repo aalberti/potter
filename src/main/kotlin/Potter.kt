@@ -1,1 +1,1 @@
-fun price(): Double = TODO("not implemented")
+fun price(): Double = 0.0
