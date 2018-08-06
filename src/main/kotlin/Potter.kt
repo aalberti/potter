@@ -4,6 +4,8 @@ fun price(books: Collection<Any>): Double {
     else {
         val set = books.distinct()
         val setPrice = when (set.size) {
+            5 -> 30.0
+            4 -> 25.6
             3 -> 21.6
             2 -> 15.2
             else -> 8.0

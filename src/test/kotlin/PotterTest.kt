@@ -5,6 +5,9 @@ import io.kotlintest.specs.StringSpec
 class PotterTest : StringSpec({
     val priceForOne = 8.0
     val priceForTwo = priceForOne * 2 * .95
+    val priceForThree = priceForOne * 3 * .9
+    val priceForFour = priceForOne * 4 * .8
+    val priceForFive = priceForOne * 5 * .75
 
     "no book costs 0" {
         price(listOf()) shouldBe 0.0
@@ -32,6 +35,12 @@ class PotterTest : StringSpec({
         )) shouldBe priceForTwo * 3
     }
     "3-book set gets 10% discount" {
-        price(listOf(1, 2, 3)) shouldBe 8.0 * 3 * .9
+        price(listOf(1, 2, 3)) shouldBe priceForThree
+    }
+    "4-book set gets 20% discount" {
+        price(listOf(1, 2, 3, 4)) shouldBe priceForFour
+    }
+    "5-book set gets 25% discount" {
+        price(listOf(1, 2, 3, 4, 5)) shouldBe priceForFive
     }
 })
