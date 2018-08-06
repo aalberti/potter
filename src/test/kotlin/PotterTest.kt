@@ -52,4 +52,22 @@ class PotterTest : StringSpec({
     "5+2" {
         price(listOf(0, 0, 1, 1, 2, 3, 5)) shouldBe priceForFive + priceForTwo
     }
+    "2 4-book sets are cheaper than one 5-book set + one 3-book set" {
+        price(listOf(
+                0, 0,
+                1, 1,
+                2, 2,
+                3,
+                   4)
+        ) shouldBe priceForFour * 2
+    }
+    "optimize 3s and 5s as long as needed" {
+        price(listOf(
+                0, 0, 0, 0,
+                1, 1, 1, 1,
+                2, 2, 2, 2,
+                3, 3,
+                      4, 4)
+        ) shouldBe priceForFour * 4
+    }
 })
